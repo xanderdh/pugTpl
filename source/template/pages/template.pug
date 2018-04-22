@@ -1,0 +1,151 @@
+extends ../_template
+
+block variables
+  - var title = 'Template page'
+
+block content
+
+  style.
+    .temprow {
+      padding: 0 0 30px 0;
+    }
+
+    .tempinner {
+      margin-bottom: 30px;
+      font-size: 50px;
+      background: #ccc;
+    }
+
+    .ttl {
+      font-size: 26px;
+      color: #00578f;
+      text-decoration: underline;
+      margin-bottom: 20px;
+      margin-top: 30px;
+      font-weight: 700;
+    }
+
+    .rc-mb .radio,
+    .rc-mb .checkbox {
+      margin-bottom: 10px;
+    }
+
+  .container
+    .ttl Static Content & typography
+    .static-content
+      h1 h1 heading
+      h2 h2 heading
+      h3 h3 heading
+      h4 h4 heading
+      h5 h5 heading
+      h6 h6 heading
+
+      blockquote
+        +lipsum(70, "words")
+
+      q
+        +lipsum(120, "words")
+
+      hr
+
+      p Lorem 
+        a(href="#") some link 
+        +lipsum(5, "sentences")
+        i ITALIC 
+          +lipsum(5, "sentences")
+
+      ol
+        -for(var i = 0; i < 5; i++) {
+          li= 'Ordered List item ' + i
+        -}
+      p
+        +lipsum(150, "words")
+        strong strong text
+      
+      ul
+        -for(var i = 0; i < 5; i++) {
+          li= 'Unordered List item ' + i
+        -}
+      table
+        thead
+          tr
+            th  Heading
+            th  Heading
+            th  Heading
+            th  Heading
+        tbody
+          tr
+            td  column
+            td  column
+            td  column
+            td  column
+          tr
+            td  column
+            td  column
+            td  column
+            td  column
+          tr
+            td  column
+            td  column
+            td  column            
+            td  column            
+    //End static content
+
+    .ttl Forms items  
+    .temprow
+      button.btn default button      
+    .temprow
+      button.btn(disabled) disabled button
+    .temprow
+      input.input(type="text" placeholder="Enter Your name")
+    .temprow
+      textarea.texarea(placeholder="Message")
+    .temprow
+      select.select
+        option(value="1") one
+        option(value="2") two
+        option(value="3") three    
+
+    .temprow.rc-mb
+      +radio("radio button text", "name", "additional-class", "input-id", "checked")
+      +radio("radio button text", "name", false, false, false)
+    .temprow.rc-mb
+      +checkbox("checkbox button text", "additional-class", "input-id", "checked")
+      +checkbox("checkbox button text", false, false, false)
+      +checkbox("checkbox button text", false, false, "checked")
+      +checkbox("checkbox button text", false, false, false)
+      +checkbox("checkbox button text", false, false, false)
+
+    //End Forms   
+      
+    .ttl greed
+    .row
+      .col.xs-12
+        .tempinner 12
+      .col.xs-1
+        .tempinner 1
+      .col.xs-11
+        .tempinner 11
+      .col.xs-2
+        .tempinner 2
+      .col.xs-10
+        .tempinner 10
+      .col.xs-3
+        .tempinner 3
+      .col.xs-9
+        .tempinner 9
+      .col.xs-4
+        .tempinner 4
+      .col.xs-8
+        .tempinner 8
+      .col.xs-5
+        .tempinner 5
+      .col.xs-7
+        .tempinner 7
+      .col.xs-6
+        .tempinner 6
+      .col.xs-6
+        .tempinner 6
+      
+    //End Greed
+      

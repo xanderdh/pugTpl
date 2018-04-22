@@ -1,0 +1,37 @@
+.spinner {
+  border: 2px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 13px;
+  width: 122px;
+  border-radius: 5px;
+
+  &__minus {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__plus {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  &__text {
+    color: $black;
+    font: 700 16px $font;
+    padding: 0;
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    text-align: center;
+  }
+}

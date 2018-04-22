@@ -1,0 +1,67 @@
+//  Table of Contents:
+//
+//   1. Global
+//   2. Colors
+//   3. Fonts
+//   4. Typography
+//   5. Other
+
+//----------------------------------------------------//
+// 1. Global                                          //
+//----------------------------------------------------//
+$global-transition: all 0.3s ease-in-out;
+$global-shadow: 1px 1px 10px rgba(0, 0, 0, 0.4);
+$global-radius: 5px;
+$global-rounded: 30px;
+$global-padding: 16px;
+$global-margin: 16px;
+
+$container-width: 1230px;
+$container-padding: 15px;
+
+$brake-point-xs: 320;
+$brake-point-sm: 768;
+$brake-point-md: 1025;
+$brake-point-lg: 1200;
+
+//----------------------------------------------------//
+// 2. Colors                                          //
+//----------------------------------------------------//
+$default: #343434;
+$accent: #0c0;
+
+$link-color: #191fcc;
+$spinner-preloader-color: #000000;
+$spinner-preloader-bg-color: #f1f1f1;
+$black: #000;
+$white: #fff;
+$gray: #8a8a8a;
+$medium-gray: #ccc;
+
+//----------------------------------------------------//
+// 3. Fonts                                           //
+//----------------------------------------------------//
+$main-font: 'PT Sans';
+$main-font-size: 16px;
+$main-font-height: 1.2;
+$main-font-weight: 400;
+$main-font-color: $default;
+
+$fix-font: 'sans-serif';
+
+//----------------------------------------------------//
+// 4. Typography                                      //
+//----------------------------------------------------//
+$h1-font-size: 32px;
+$h2-font-size: 30px;
+$h3-font-size: 28px;
+$h4-font-size: 24px;
+$h5-font-size: 20px;
+$h6-font-size: 18px;
+
+$hr-color: #e9e9e9;
+$hr-margin: 32px 0;
+
+//----------------------------------------------------//
+// 5. Other                                           //
+//----------------------------------------------------//

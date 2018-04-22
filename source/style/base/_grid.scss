@@ -1,0 +1,425 @@
+$gap: 15px;
+$cols: 12;
+
+@mixin row() {
+  font-size: 0;
+  line-height: 0;
+  margin-left: -$gap;
+  margin-right: -$gap;
+}
+
+@mixin col($col, $breakpoint) {
+  width: 100%;
+  font-size: 16px;
+  display: inline-block;
+  padding: 0 $gap;
+
+  @media (min-width: $breakpoint) {
+    width: percentage($col/$cols);
+  }
+}
+
+.row {
+  font-size: 0;
+  line-height: 0;
+  margin-left: -$gap;
+  margin-right: -$gap;
+}
+
+.col {
+  display: inline-block;
+  vertical-align: top;
+  padding: 0 $gap;
+  width: 100%;
+  font-size: $main-font-size;
+  line-height: $main-font-height;
+}
+
+@media (min-width: $brake-point-xs + 'px') {
+
+  .xs-12 {
+    width: percentage(12/$cols);
+  }
+
+  .xs-11 {
+    width: percentage(11/$cols);
+  }
+
+  .xs-10 {
+    width: percentage(10/$cols);
+  }
+
+  .xs-9 {
+    width: percentage(9/$cols);
+  }
+
+  .xs-8 {
+    width: percentage(8/$cols);
+  }
+
+  .xs-7 {
+    width: percentage(7/$cols);
+  }
+
+  .xs-6 {
+    width: percentage(6/$cols);
+  }
+
+  .xs-5 {
+    width: percentage(5/$cols);
+  }
+
+  .xs-4 {
+    width: percentage(4/$cols);
+  }
+
+  .xs-3 {
+    width: percentage(3/$cols);
+  }
+
+  .xs-2 {
+    width: percentage(2/$cols);
+  }
+
+  .xs-1 {
+    width: percentage(1/$cols);
+  }
+
+  .offset-xs-11 {
+    margin-left: percentage(11/$cols);
+  }
+
+  .offset-xs-10 {
+    margin-left: percentage(10/$cols);
+  }
+
+  .offset-xs-9 {
+    margin-left: percentage(9/$cols);
+  }
+
+  .offset-xs-8 {
+    margin-left: percentage(8/$cols);
+  }
+
+  .offset-xs-7 {
+    margin-left: percentage(7/$cols);
+  }
+
+  .offset-xs-6 {
+    margin-left: percentage(6/$cols);
+  }
+
+  .offset-xs-5 {
+    margin-left: percentage(5/$cols);
+  }
+
+  .offset-xs-4 {
+    margin-left: percentage(4/$cols);
+  }
+
+  .offset-xs-3 {
+    margin-left: percentage(3/$cols);
+  }
+
+  .offset-xs-2 {
+    margin-left: percentage(2/$cols);
+  }
+
+  .offset-xs-1 {
+    margin-left: percentage(1/$cols);
+  }
+}
+
+@media (min-width: $brake-point-sm + 'px') {
+
+  .sm-12 {
+    width: percentage(12/$cols);
+  }
+
+  .sm-11 {
+    width: percentage(11/$cols);
+  }
+
+  .sm-10 {
+    width: percentage(10/$cols);
+  }
+
+  .sm-9 {
+    width: percentage(9/$cols);
+  }
+
+  .sm-8 {
+    width: percentage(8/$cols);
+  }
+
+  .sm-7 {
+    width: percentage(7/$cols);
+  }
+
+  .sm-6 {
+    width: percentage(6/$cols);
+  }
+
+  .sm-5 {
+    width: percentage(5/$cols);
+  }
+
+  .sm-4 {
+    width: percentage(4/$cols);
+  }
+
+  .sm-3 {
+    width: percentage(3/$cols);
+  }
+
+  .sm-2 {
+    width: percentage(2/$cols);
+  }
+
+  .sm-1 {
+    width: percentage(1/$cols);
+  }
+
+  .offset-sm-11 {
+    margin-left: percentage(11/$cols);
+  }
+
+  .offset-sm-10 {
+    margin-left: percentage(10/$cols);
+  }
+
+  .offset-sm-9 {
+    margin-left: percentage(9/$cols);
+  }
+
+  .offset-sm-8 {
+    margin-left: percentage(8/$cols);
+  }
+
+  .offset-sm-7 {
+    margin-left: percentage(7/$cols);
+  }
+
+  .offset-sm-6 {
+    margin-left: percentage(6/$cols);
+  }
+
+  .offset-sm-5 {
+    margin-left: percentage(5/$cols);
+  }
+
+  .offset-sm-4 {
+    margin-left: percentage(4/$cols);
+  }
+
+  .offset-sm-3 {
+    margin-left: percentage(3/$cols);
+  }
+
+  .offset-sm-2 {
+    margin-left: percentage(2/$cols);
+  }
+
+  .offset-sm-1 {
+    margin-left: percentage(1/$cols);
+  }
+}
+
+@media (min-width: $brake-point-md + 'px') {
+
+  .md-12 {
+    width: percentage(12/$cols);
+  }
+
+  .md-11 {
+    width: percentage(11/$cols);
+  }
+
+  .md-10 {
+    width: percentage(10/$cols);
+  }
+
+  .md-9 {
+    width: percentage(9/$cols);
+  }
+
+  .md-8 {
+    width: percentage(8/$cols);
+  }
+
+  .md-7 {
+    width: percentage(7/$cols);
+  }
+
+  .md-6 {
+    width: percentage(6/$cols);
+  }
+
+  .md-5 {
+    width: percentage(5/$cols);
+  }
+
+  .md-4 {
+    width: percentage(4/$cols);
+  }
+
+  .md-3 {
+    width: percentage(3/$cols);
+  }
+
+  .md-2 {
+    width: percentage(2/$cols);
+  }
+
+  .md-1 {
+    width: percentage(1/$cols);
+  }
+
+  .offset-md-11 {
+    margin-left: percentage(11/$cols);
+  }
+
+  .offset-md-10 {
+    margin-left: percentage(10/$cols);
+  }
+
+  .offset-md-9 {
+    margin-left: percentage(9/$cols);
+  }
+
+  .offset-md-8 {
+    margin-left: percentage(8/$cols);
+  }
+
+  .offset-md-7 {
+    margin-left: percentage(7/$cols);
+  }
+
+  .offset-md-6 {
+    margin-left: percentage(6/$cols);
+  }
+
+  .offset-md-5 {
+    margin-left: percentage(5/$cols);
+  }
+
+  .offset-md-4 {
+    margin-left: percentage(4/$cols);
+  }
+
+  .offset-md-3 {
+    margin-left: percentage(3/$cols);
+  }
+
+  .offset-md-2 {
+    margin-left: percentage(2/$cols);
+  }
+
+  .offset-md-1 {
+    margin-left: percentage(1/$cols);
+  }
+}
+
+@media (min-width: $brake-point-lg + 'px') {
+
+  .lg-12 {
+    width: percentage(12/$cols);
+  }
+
+  .lg-11 {
+    width: percentage(11/$cols);
+  }
+
+  .lg-10 {
+    width: percentage(10/$cols);
+  }
+
+  .lg-9 {
+    width: percentage(9/$cols);
+  }
+
+  .lg-8 {
+    width: percentage(8/$cols);
+  }
+
+  .lg-7 {
+    width: percentage(7/$cols);
+  }
+
+  .lg-6 {
+    width: percentage(6/$cols);
+  }
+
+  .lg-5 {
+    width: percentage(5/$cols);
+  }
+
+  .lg-4 {
+    width: percentage(4/$cols);
+  }
+
+  .lg-3 {
+    width: percentage(3/$cols);
+  }
+
+  .lg-2 {
+    width: percentage(2/$cols);
+  }
+
+  .lg-1 {
+    width: percentage(1/$cols);
+  }
+
+  .offset-lg-11 {
+    margin-left: percentage(11/$cols);
+  }
+
+  .offset-lg-10 {
+    margin-left: percentage(10/$cols);
+  }
+
+  .offset-lg-9 {
+    margin-left: percentage(9/$cols);
+  }
+
+  .offset-lg-8 {
+    margin-left: percentage(8/$cols);
+  }
+
+  .offset-lg-7 {
+    margin-left: percentage(7/$cols);
+  }
+
+  .offset-lg-6 {
+    margin-left: percentage(6/$cols);
+  }
+
+  .offset-lg-5 {
+    margin-left: percentage(5/$cols);
+  }
+
+  .offset-lg-4 {
+    margin-left: percentage(4/$cols);
+  }
+
+  .offset-lg-3 {
+    margin-left: percentage(3/$cols);
+  }
+
+  .offset-lg-2 {
+    margin-left: percentage(2/$cols);
+  }
+
+  .offset-lg-1 {
+    margin-left: percentage(1/$cols);
+  }
+}
+
+.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+
+  .col {
+    padding: 0;
+  }
+}

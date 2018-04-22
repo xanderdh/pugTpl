@@ -1,0 +1,114 @@
+#preloader {
+  position: fixed;
+  margin: 0 auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: #fff;
+  z-index: 9999;
+  overflow: hidden;
+
+  .preloader-wrapper {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+  }
+}
+
+.preloader-center {
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+$tcon-size: 40px !default;
+$tcon-transition: 0.3s !default;
+$tcon-jstransform: 'tcon-transform' !default;
+
+$spinner_speed: 0.675s !default;
+$spinner_radius: 80% !default;
+$spinner_fill_radius: 90px !default;
+
+$spinner_size: 80px !default;
+$spinner_thickness: 10px !default;
+$spinner_inner_circle: $spinner_size - $spinner_thickness !default;
+
+$spinner_color: $spinner-preloader-color !default;
+$spinner_bg: $spinner-preloader-bg-color !default;
+$spinner_inner_bg: $white !default;
+
+.tcon-loader--spinner360 {
+  border-radius: 80%;
+  display: block;
+  height: $spinner_size;
+  width: $spinner_size;
+  position: relative;
+  animation: tcon-spin360 $spinner_speed linear infinite forwards;
+  background: $spinner_bg;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+  }
+
+  &:before {
+    border-radius: 0 $spinner_fill_radius $spinner_fill_radius 0;
+    height: $spinner_size;
+    width: 50%;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    background: $spinner_color;
+    background-image: linear-gradient($spinner_bg, $spinner_color);
+  }
+
+  &:after {
+    border-radius: $spinner_radius;
+    height: $spinner_inner_circle;
+    width: $spinner_inner_circle;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    background: $spinner_inner_bg;
+  }
+}
+
+@keyframes tcon-spin360 {
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// see issue #7 https://github.com/grayghostvisuals/transformicons/issues/7#issuecomment-59813596
+.tcon-visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+
+  &:active,
+  &:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+}

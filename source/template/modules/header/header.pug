@@ -1,0 +1,20 @@
+mixin header(mods)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +header('mod-name1, mod-name2')
+
+  -
+      // список модификаторов
+      var allMods = '';
+      if(typeof(mods) !== 'undefined' && mods) {
+      var modsList = mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+      allMods = allMods + ' header--' + modsList[i].trim();
+      }
+    }
+
+  header.header(class= allMods)
+    .container
+      h1 Header

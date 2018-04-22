@@ -1,0 +1,9 @@
+select {
+  display: block;
+  @include clearSelect;
+  transition: none;
+  background-position: right 25px center;
+  background-repeat: no-repeat;
+  background-size: 29px 17px;
+  background-color: #fff;
+}
