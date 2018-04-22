@@ -1,8 +1,8 @@
 'use strict';
 
 export default function () {
-  controller('footer', (controllerContainer)=>{
-    const footer = controllerContainer;
+  controller('footer', (controller)=>{
+    const footer = controller;
 
     function autoFooter() {
       const wrapper = $('.wrapper');

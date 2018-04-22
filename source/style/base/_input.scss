@@ -45,7 +45,7 @@ input[type='file'] {
     color: $gray;
     text-align: center;
     border: 1px dashed #c4c4c4;
-    transition: 0.2s ease-in-out;
+    @include trs;
 
     &:hover {
       border-color: #696969;
