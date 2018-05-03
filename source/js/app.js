@@ -1,5 +1,3 @@
-'use strict';
-
 import CONSTANTS from './constants'
 import browserUpdate from 'browser-update';
 import preloader from './controller/preloader';

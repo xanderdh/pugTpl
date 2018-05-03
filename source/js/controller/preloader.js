@@ -1,7 +1,5 @@
-'use strict';
-
 export default function () {
-  controller('preloader', (controllerContainer) => {
+  controller('preloader', (self) => {
     $('body').css('overflow', 'hidden');
     $(window).on('load', () => {
       setTimeout(() => {
@@ -12,4 +10,4 @@ export default function () {
       }, 600);
     });
   });
-};
+}
