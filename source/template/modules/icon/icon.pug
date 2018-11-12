@@ -1,0 +1,22 @@
+//- Все примеси в этом файле должны начинаться c имени блока (icon)
+
+mixin icon(iconClass, iconName)
+
+  //- Принимает:
+  //-   iconClass        {string} - список модификаторов (класс иконки c перффиксом `icon-`)
+  //-   iconName         {string} - icon name
+  //- Вызов:
+        +icon('mod-name1, mod-name2')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(iconClass) !== 'undefined' && iconClass) {
+      var modsList = iconClass.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' icon-' + modsList[i].trim();
+      }
+    }
+
+  svg.icon-svg(class=allMods)
+    use(xlink:href=`assets/img/sprite.svg#${iconName}`)
