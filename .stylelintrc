@@ -291,8 +291,8 @@
     "max-empty-lines": [3, {
       "message": "Максимум линий пустых допустимо: 3"
     }],
-    "max-nesting-depth": [4, {
-      "message": "Вложения боле 4 уровней — на тёмную сторону путь",
+    "max-nesting-depth": [6, {
+      "message": "Вложения боле 6 уровней — на тёмную сторону путь",
       "ignore": ["blockless-at-rules"],
       "severity": "warning"
     }],
