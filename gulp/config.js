@@ -18,7 +18,8 @@ module.exports = {
       './source/template/modules/**/*.scss',
       './source/template/base/**/*.scss',
       '!./source/style/config/_mixins.scss',
-      '!./source/style/config/_sprite.scss'
+      '!./source/style/config/_sprite.scss',
+      '!./source/style/fonts.scss'
     ],
     zip: './zip',
     json: [

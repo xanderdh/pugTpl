@@ -1,26 +1,8 @@
-//----------------------------------------------------//
-// Mixins & Includes                                  //
-//----------------------------------------------------//
+@import 'variables';
+
 @mixin notext {
   overflow: hidden;
   text-indent: -9999px;
-}
-
-.clearfix:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
-.centered {
-  display: table;
-  width: 100%;
-  height: 100%;
-  > * {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-  }
 }
 
 // PLACEHOLDER MIXIN
@@ -212,7 +194,6 @@
 }
 
 
-
 @mixin circle($width, $color) {
   width: $width;
   height: $width;
@@ -232,24 +213,17 @@
     border-left: $width solid transparent;
     border-right: $width solid transparent;
     border-bottom: $width solid $color;
-  }
-  @else if $dir==down {
+  } @else if $dir==down {
     border-left: $width solid transparent;
     border-right: $width solid transparent;
     border-top: $width solid $color;
-  }
-  @else if $dir==left {
+  } @else if $dir==left {
     border-top: $width solid transparent;
     border-bottom: $width solid transparent;
     border-right: $width solid $color;
-  }
-  @else if $dir==right {
+  } @else if $dir==right {
     border-top: $width solid transparent;
     border-bottom: $width solid transparent;
     border-left: $width solid $color;
   }
-}
-
-.hide {
-  display: none!important; // for js
 }

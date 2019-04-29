@@ -42,7 +42,7 @@ global.$ = {
   })
 };
 
-if($.dev) $.path.jsFoundation.push('source/js/develop-script.js');
+if ($.dev) $.path.jsFoundation.push('source/js/develop-script.js');
 
 $.path.task.forEach(function (taskPath) {
   require(taskPath)();
@@ -53,15 +53,16 @@ $.gulp.task('default', $.gulp.series(
   'page-list',
   'pug:data',
   'pug:mixin',
-  $.gulp.parallel(
+  'copy:font',
+  'fonts:sass',
+  $.gulp.parallel(    
     'sass',
     'pug',
     'js:foundation',
     'js:process',
     'copy:image',
     'sprite:svg',
-    'sprite:png',
-    'copy:font',
+    'sprite:png',    
     'css:foundation'
   ),
   $.gulp.parallel(
@@ -74,15 +75,16 @@ $.gulp.task('build', $.gulp.series(
   'clean',
   'pug:data',
   'pug:mixin',
-  $.gulp.parallel(
+  'copy:font',
+  'fonts:sass',
+  $.gulp.parallel(    
     'sass',
     'pug',
     'js:foundation',
     'js:process',
     'copy:image',
     'sprite:svg',
-    'sprite:png',
-    'copy:font',
+    'sprite:png',    
     'css:foundation',
     'sass-lint'
   )
