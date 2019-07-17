@@ -83,14 +83,3 @@ template/                                # Корень проекта
 ├── csscomb.json                         # Конфиг позиционированя css свойств
 └── README.md                            # Етот файл
 ```
-
-
-## Development
-
-### Pug
-*  Docs -- https://pugjs.org/api/getting-started.html
-*  Rus Docs Habr -- https://habrahabr.ru/post/278109/
-
-### Yarn
--  Add module example: `yarn add slick-carousel` 
--  Module will add to the node_modules folder and package.json dev-dependencies
