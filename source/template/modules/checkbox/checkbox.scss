@@ -1,0 +1,51 @@
+.checkbox {
+  display: block;
+  cursor: pointer;
+
+  input[type='checkbox'] {
+    display: none;
+
+    &:checked + span {
+
+      &:after {
+        opacity: 1;
+      }
+    }
+  }
+
+  span {
+    display: block;
+    padding: 0 0 0 30px;
+    font-size: $main-font-size;
+    line-height: $main-font-height;
+    position: relative;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 50%;
+      left: 0;
+      margin: -8px 0 0 0;
+      background: #ddd;
+    }
+
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      height: 8px;
+      width: 5px;
+      border-bottom: 2px solid $accent;
+      border-right: 2px solid $accent;
+      transform: rotate(45deg);
+      top: 50%;
+      left: 5px;
+      margin: -5px 0 0 0;
+      opacity: 0;
+      @include trs;
+    }
+  }
+}

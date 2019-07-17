@@ -14,7 +14,7 @@ module.exports = function() {
         })
       ]))
       .pipe($.gp.if(!$.dev, $.gp.csso()))
-      .pipe($.gp.if($.dev, $.gp.sourcemaps.write()))
+      .pipe($.gp.if($.dev && !$.isPacking, $.gp.sourcemaps.write()))
       .pipe($.gp.if(!$.dev, $.gp.rename({ suffix: '.min' })))
       .pipe($.gulp.dest($.config.path.root + '/assets/css'))
       .pipe($.browserSync.stream());

@@ -1,0 +1,22 @@
+//- Все примеси в этом файле должны начинаться c имени блока (radio)
+
+mixin radio(text, options)
+
+  //- Принимает:
+  //-   mods    {string} - список модификаторов
+  //- Вызов:
+        +radio('mod-name1, mod-name2')
+
+  -
+    // список модификаторов
+    var allMods = '';
+    if(typeof(options.mods) !== 'undefined' && options.mods) {
+      var modsList = options.mods.split(',');
+      for (var i = 0; i < modsList.length; i++) {
+        allMods = allMods + ' radio--' + modsList[i].trim();
+      }
+    }
+
+  label.radio(class= allMods)
+    input(type="radio" id= options.id checked= options.checked name= options.name || 'radio')
+    span= text

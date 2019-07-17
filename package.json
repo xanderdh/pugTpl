@@ -12,7 +12,8 @@
     "stylelint": "gulp sass-lint",
     "zip": "gulp zip",
     "zip-all": "gulp zip:all",
-    "zip-production": "set NODE_ENV=production&& gulp zip:production"
+    "zip-production": "set NODE_ENV=production&& gulp zip:production",
+    "pack": "gulp pack"
   },
   "devDependencies": {
     "@htmlacademy/editorconfig-cli": "1.x",
@@ -24,8 +25,8 @@
     "css-mqpacker": "^6.0.2",
     "del": "^3.0.0",
     "editorconfig-tools": "^0.1.1",
-    "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-autoprefixer": "^4.1.0",
+    "gulp": "^4.0",
+    "gulp-autoprefixer": "^6.1.0",
     "gulp-cheerio": "^0.6.3",
     "gulp-concat": "^2.6.1",
     "gulp-concat-css": "^3.0.0",
@@ -62,8 +63,10 @@
     "vinyl-source-stream": "^2.0.0"
   },
   "dependencies": {
+    "blazy": "^1.8.2",
     "browser-update": "^2.1.11",
     "jquery": "^3.3.1",
+    "lodash": "^4.17.11",
     "normalize.css": "^7.0.0",
     "stylelint-declaration-use-variable": "^1.6.1",
     "svg4everybody": "^2.1.9"

@@ -106,16 +106,18 @@ block content
         option(value="2") two
         option(value="3") three    
 
-    .temprow.rc-mb
-      +radio("radio button text", "name", "additional-class", "input-id", "checked")
-      +radio("radio button text", "name", false, false, false)
-    .temprow.rc-mb
-      +checkbox("checkbox button text", "additional-class", "input-id", "checked")
-      +checkbox("checkbox button text", false, false, false)
-      +checkbox("checkbox button text", false, false, "checked")
-      +checkbox("checkbox button text", false, false, false)
-      +checkbox("checkbox button text", false, false, false)
-
+    form.temprow.rc-mb
+      +radio("radio button text 0", {mods: 'mod-class_1, mod-class_2', name: 'radio_name'})
+      +radio("radio button text 2", {name: 'radio_name'})
+      +radio("radio button text 3", {name: 'radio_name'})      
+      
+    form.temprow.rc-mb
+      +checkbox("checkbox button text 0", {mods: 'mod-class_1, mod-class_2', id: 'check_id', name: 'check_name', checked: true})
+      +checkbox("checkbox button text 1", {name: 'check_name', checked: true})
+      +checkbox("checkbox button text 2", {name: 'check_name'})
+      +checkbox("checkbox button text 3", {})
+      
+      
     //End Forms   
       
     .ttl greed

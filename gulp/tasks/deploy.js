@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function () {
-  $.gulp.task('deploy', function () {
+  $.gulp.task('deploy:ftp', function () {
     return $.gulp.src($.config.path.deploy, {base: '', buffer: false})
       .pipe($.ftp.create($.config.ftpConfig).dest('/'))
       .on('error', $.gp.notify.onError({title: 'Deploy'}))

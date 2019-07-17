@@ -1,13 +1,17 @@
 'use strict';
+const path = require('path');
+const _ = require('lodash');
 
-const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
+const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
 global.$ = {
+  isPacking: false,
   dev: isDevelopment,
   package: require('./package.json'),
   config: require('./gulp/config'),
   cssCombConfig: require("./csscomb.json"),
   pageList: [],
+  projectName: _.last(__dirname.split(path.sep)),
   path: {
     task: require('./gulp/paths/tasks.js'),
     jsFoundation: require('./gulp/paths/js.foundation.js'),
@@ -55,14 +59,14 @@ $.gulp.task('default', $.gulp.series(
   'pug:mixin',
   'copy:font',
   'fonts:sass',
-  $.gulp.parallel(    
+  $.gulp.parallel(
     'sass',
     'pug',
     'js:foundation',
     'js:process',
     'copy:image',
     'sprite:svg',
-    'sprite:png',    
+    'sprite:png',
     'css:foundation'
   ),
   $.gulp.parallel(
@@ -77,17 +81,21 @@ $.gulp.task('build', $.gulp.series(
   'pug:mixin',
   'copy:font',
   'fonts:sass',
-  $.gulp.parallel(    
+  $.gulp.parallel(
     'sass',
     'pug',
     'js:foundation',
     'js:process',
     'copy:image',
     'sprite:svg',
-    'sprite:png',    
+    'sprite:png',
     'css:foundation',
     'sass-lint'
   )
+));
+
+$.gulp.task('deploy', $.gulp.series(
+  'deploy:ftp'
 ));
 
 $.gulp.task('zip:production', $.gulp.series(

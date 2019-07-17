@@ -21,5 +21,6 @@ module.exports = [
   './gulp/tasks/page-list.js',
   './gulp/tasks/clean-ftp.js',
   './gulp/tasks/zip.js',
-  './gulp/tasks/move-fonts-style.js'
+  './gulp/tasks/move-fonts-style.js',
+  './gulp/tasks/pack.js'
 ];

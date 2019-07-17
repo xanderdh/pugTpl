@@ -1,14 +1,23 @@
-let gutil = require('gulp-util');
+const gutil = require('gulp-util');
+
+let ftpConfig;
+try {
+  ftpConfig = require('./ftp-config');
+} catch (e) {
+  ftpConfig = {
+    host: '',
+    user: '',
+    password: '',
+  }
+}
 
 module.exports = {
   ftpConfig: {
-    host: 'zaraz.ftp.ukraine.com.ua',
-    user: 'zaraz_dev0113',
-    password: '1dibp952',
-    parallel: 10,
+    ...ftpConfig, // Use ftp-config.js instead, for secure reason
+    parallel: 7,
     log: gutil.log
   },
-  
+
   path: {
     root: './build',
     deploy: ['./build/**/*.*', './source/root/**/*.*', './source/root/.htaccess'],
@@ -25,16 +34,16 @@ module.exports = {
     json: [
       './source/template/modules/**/*.json'
     ]
-  },    
-  
+  },
+
   svgConfig: {
     rmStyle: true //false to disable removing ['fill', 'stroke', 'style'] from svg
   },
- 
+
   imgConfig: {
     interlaced: true,
     progressive: true,
     optimizationLevel: 5
   },
-  autoprefixerConfig: ['last 3 version', '> 1%', 'ie 8', 'ie 9', 'Opera 12.1']
+  autoprefixerConfig: ['last 2 version', '> 1%', 'ie 10', 'Opera 12.1']
 };

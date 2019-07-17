@@ -4,7 +4,7 @@ const fs = require('fs');
 const mkdirp = require('mkdirp');
 
 const blockNames = process.argv.slice(2);
-const mixinList = JSON.parse(fs.readFileSync('./source/template/basic/_mixin-list.json', 'utf8'));
+const mixinList = JSON.parse(fs.readFileSync('./source/template/mixins/_mixin-list.json', 'utf8'));
 
 const extensions = ['scss', 'pug', 'json'];
 
@@ -49,7 +49,7 @@ if (blockNames) {
         } else {
           
           mixinList.paths.push('../modules/' + blockName + '/' + blockName);          
-          fs.writeFileSync('./source/template/basic/_mixin-list.json', JSON.stringify(mixinList, '', 2));
+          fs.writeFileSync('./source/template/mixins/_mixin-list.json', JSON.stringify(mixinList, '', 2));
           
           console.log(`Миксин ${blockName} добавлен в список моксинов`);
         }

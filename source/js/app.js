@@ -1,13 +1,17 @@
 import CONSTANTS from './constants'
 import browserUpdate from 'browser-update';
+import controller from './controller'
 import preloader from './controller/preloader';
-import footer from './controller/footer';
 
+controller();
 preloader();
 browserUpdate(CONSTANTS.browserUpdateOptions);
 
 $(document).ready(() => {
-  svg4everybody(); //SVG polyfill
-  footer();
-  //Other controllers and js modules here
+  svg4everybody();
+
+  const bLazy = new Blazy();
+  $(window).on('preloaderRemoved', () => {
+    bLazy.revalidate()
+  });
 });

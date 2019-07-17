@@ -1,4 +1,4 @@
-include basic/_mixin-list
+include mixins/_mixin-list
 
 block variables
 
@@ -12,14 +12,19 @@ html
     meta(content="" name="keywords")
     meta(name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0")
     meta(content="ie=edge" http-equiv="x-ua-compatible")
+    meta(name="format-detection" content="telephone=no")
 
     // favicon block start
     link(rel="icon" href="favicon.ico" type="image/x-icon")
-    link(rel="shortcut icon" href="favicon.ico" type="image/x-icon")    
+    link(rel="shortcut icon" href="favicon.ico" type="image/x-icon")
     // favicon block end
 
-    link(rel="stylesheet" href="assets/css/foundation%=suffix=%.css%=version=%")
-    link(rel="stylesheet" href="assets/css/app%=suffix=%.css%=version=%")
+    if($.isPacking)
+      link(rel="stylesheet" href="assets/css/foundation%=suffix=%.css")
+      link(rel="stylesheet" href="assets/css/app%=suffix=%.css")
+    else
+      link(rel="stylesheet" href="assets/css/foundation%=suffix=%.css%=version=%")
+      link(rel="stylesheet" href="assets/css/app%=suffix=%.css%=version=%")
 
 
     <!--[if lt IE 10]>    
@@ -32,12 +37,17 @@ html
       include ../fonts/fonts.css
 
   body
-    block content       
-     
     include ./modules/preloader/preloader
-    if($.dev) 
+    
+    block content
+    
+    if($.dev && !$.isPacking)
       include ./modules/pagelist/pagelist.pug
 
     block script
+      if($.isPacking)
+        script(src="assets/js/foundation%=suffix=%.js" defer)
+        script(src="assets/js/app%=suffix=%.js" defer)
+      else
         script(src="assets/js/foundation%=suffix=%.js%=version=%" defer)
         script(src="assets/js/app%=suffix=%.js%=version=%" defer)       
