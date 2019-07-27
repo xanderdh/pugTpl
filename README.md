@@ -8,6 +8,7 @@
 4. `git remote add origin repo_address_here` -- Set remote origin address
 5. `git commit -m "initial commit"` -- First commit
 
+
 ### Global Requirement
 
 * Install [node.js](https://nodejs.org)
@@ -25,8 +26,8 @@
 
 0. `yarn cfg` -- Configure your project
 1. `yarn start` -- Start develop task (serve from ./build)
-2. `yarn build` -- Build production version (all compress, no sourcemap, no watcher, no develop scripts)
-3. `yarn deploy` -- Push build folder to the ftp (settings in ./gulp/ftp-config__OLD.js)
+2. `yarn build` -- Build production version (all compress, no sourcemap, no watcher)
+3. `yarn deploy` -- Push build folder to the ftp
 4. `yarn ftp-clean` -- Clean ftp from useless files 
 5. `yarn stylelint` -- Check all .scss with stylelint
 6. `yarn zip` -- zip current ./build to ./zip
@@ -44,15 +45,15 @@
 template/                                # Корень проекта
 ├── build                                # Скомилированные файлы
 ├── gulp                                 # Галп таски и конфиги
-├──  ├── paths                           # Пути сборки
-├──  │   ├── app.js                      # Пути основных скриптов
-├──  │   ├── css.foundation              # Пути подключения css из плагинов
-├──  │   ├── js.foundation.js            # Пути подключения js из плагинов
-├──  │   └── tasks.js                    # Пути тасок
-├──  ├── tasks                           # Таски
-├──  ├── config.js                       # Галп конфиги
-├──  └── ftp-config.json                 # FTP config
-├── zip                                  # Архивы zip таски
+│    ├── paths                           # Пути сборки
+│    │   ├── app.js                      # Пути основных скриптов
+│    │   ├── css.foundation              # Пути подключения css из плагинов
+│    │   ├── js.foundation.js            # Пути подключения js из плагинов
+│    │   └── tasks.js                    # Пути тасок
+│    ├── tasks                           # Таски
+│    ├── config.js                       # Галп конфиги
+│    └── ftp-config.json                 # FTP config (Генерится програмно) (.ignored)
+├── zip                                  # Архивы `yarn zip`
 ├── source                               # Исходники
 │   ├── fonts                            # Шрифты
 │   ├── images                           # Графика
@@ -71,11 +72,11 @@ template/                                # Корень проекта
 │   └── template                         # Pug
 │       ├── develop-only                 # Модули необходимые исключительно для дева
 │       ├── mixins                       # Миксины
-│       │    ├── _mixin-list.pug         # Подключение всех миксинов (Генерится програмно)
+│       │    ├── _mixin-list.pug         # Подключение всех миксинов (Генерится програмно) (.ignored)
 │       │    └── _mixin-list.json        # Список всех миксинов в json (Можно вручную добавлять + авто добавление при создании модуля)
 │       ├── components                   # Копмоненты\модули (все что НЕ миксины)
 │       ├── pages                        # Корневые страницы
-│       ├── data-tmp.json                # Тут собраны все данные .json (файл генерится автоматически)
+│       ├── data-tmp.json                # Тут собраны все данные .json (файл генерится автоматически) (.ignored)
 │       └── _template.pug                # Шаблон pug (основная структура каждой страницы)
 ├── package.json                         # Зависимости для node.js
 ├── gulpfile.js                          # Галп
