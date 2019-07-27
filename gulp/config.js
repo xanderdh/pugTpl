@@ -1,9 +1,11 @@
 const gutil = require('gulp-util');
 
 let ftpConfig;
+
 try {
   ftpConfig = require('./ftp-config');
 } catch (e) {
+  console.error('use \'yarn cfg\' to set ftp config');
   ftpConfig = {
     host: '',
     user: '',
@@ -13,7 +15,7 @@ try {
 
 module.exports = {
   ftpConfig: {
-    ...ftpConfig, // Use ftp-config.js instead, for secure reason
+    ...ftpConfig,
     parallel: 7,
     log: gutil.log
   },
@@ -24,7 +26,7 @@ module.exports = {
     sassSourceFiles: ['./source/style/app.scss'],
     sassLint: [
       './source/style/**/*.scss',
-      './source/template/modules/**/*.scss',
+      './source/template/components/**/*.scss',
       './source/template/base/**/*.scss',
       '!./source/style/config/_mixins.scss',
       '!./source/style/config/_sprite.scss',
@@ -32,7 +34,7 @@ module.exports = {
     ],
     zip: './zip',
     json: [
-      './source/template/modules/**/*.json'
+      './source/template/components/**/*.json'
     ]
   },
 

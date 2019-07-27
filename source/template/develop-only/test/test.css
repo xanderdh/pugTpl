@@ -1,0 +1,16 @@
+._TEST {
+  padding: 10px 30px;
+  position: fixed;
+  right: 30px;
+  top: 25px;
+  background-color: #a5b5cc;
+  display: none;
+  border-radius: 10px 0 10px 10px;
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+}
+
+._TEST .list-group-item {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}

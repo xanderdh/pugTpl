@@ -18,4 +18,5 @@
 @import 'base/grid';
 
 //Pages & Modules
-@import '../template/modules/**/*.scss';
+@import '../template/components/**/*.scss';
+@import '../template/mixins/**/*.scss';

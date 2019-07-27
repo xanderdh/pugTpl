@@ -1,6 +1,4 @@
 'use strict';
-const path = require('path');
-const _ = require('lodash');
 
 const isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV === 'development';
 
@@ -11,13 +9,13 @@ global.$ = {
   config: require('./gulp/config'),
   cssCombConfig: require("./csscomb.json"),
   pageList: [],
-  projectName: _.last(__dirname.split(path.sep)),
   path: {
     task: require('./gulp/paths/tasks.js'),
     jsFoundation: require('./gulp/paths/js.foundation.js'),
     cssFoundation: require('./gulp/paths/css.foundation.js'),
     app: require('./gulp/paths/app.js')
   },
+  gutil: require('gulp-util'),
   gulp: require('gulp'),
   del: require('del'),
   merge: require('merge-stream'),
@@ -45,8 +43,6 @@ global.$ = {
     }
   })
 };
-
-if ($.dev) $.path.jsFoundation.push('source/js/develop-script.js');
 
 $.path.task.forEach(function (taskPath) {
   require(taskPath)();

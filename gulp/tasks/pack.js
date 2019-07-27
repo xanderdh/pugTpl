@@ -1,10 +1,15 @@
 'use strict';
-const _ = require('lodash');
+
 const through = require('through2');
 const genProjectName = require('../utils/genProjectName.js');
+const packageJson = require('../../package');
+const prompts = require('prompts');
+var fs = require('fs');
+const projectName = packageJson.name;
+const clear = require('clear');
 
 const OPTION = {
-  projectName: 'html_' + genProjectName($.projectName),
+  fileName: 'html_' + genProjectName(projectName),
   tmpRoot: './tmp',
   ignoredFiles: ['ftp-config.js']
 };
@@ -23,33 +28,56 @@ const mvFilter = () => through.obj((file, enc, cb) => {
   return cb(null, file);
 });
 
-$.gulp.task('config', done => {
+$.gulp.task('config', async done => {
   $.isPacking = true;
-  _.remove($.path.jsFoundation, el => !!~el.indexOf('develop-script'));
+
+  if (!projectName) {
+    clear();
+
+    let {name} = await prompts({
+      type: 'text',
+      name: 'name',
+      message: 'Enter project name to continue:',
+      validate: value => !!value
+    });
+
+    name = name ? name.replace(/ /g, '').toLowerCase() : null;
+
+    if (name) {
+      packageJson.name = name;
+
+      fs.writeFile('package.json', JSON.stringify(packageJson, null, '  '), (err) => {
+        if (err) console.log(err);
+        console.log("Successfully written a project name.");
+      });
+
+      OPTION.fileName = 'html_' + genProjectName(name);
+    }
+  }
 
   return done();
 });
 
 $.gulp.task('mv-data', () => {
 
-  return $.gulp.src(['./**/*', '!./node_modules/**/*'])
+  return $.gulp.src(['./**/*', './**/.*', '!./node_modules/**/*', '!./tmp/**/*'])
     .pipe(mvFilter())
-    .pipe($.gulp.dest(`${OPTION.tmpRoot}/${OPTION.projectName}`))
+    .pipe($.gulp.dest(`${OPTION.tmpRoot}/${OPTION.fileName}`))
 });
 
 $.gulp.task('clear-tmp-data', done => $.del(OPTION.tmpRoot, done));
 
 $.gulp.task('zip-project', done => {
 
-  return $.gulp.src(`${OPTION.tmpRoot}/${OPTION.projectName}/**/*`)
-    .pipe($.zip(OPTION.projectName + '.zip'))
+  return $.gulp.src(`${OPTION.tmpRoot}/${OPTION.fileName}/**/*`)
+    .pipe($.zip(OPTION.fileName + '.zip'))
     .pipe($.gulp.dest(OPTION.tmpRoot))
     .on('end', done);
 });
 
 $.gulp.task('deploy-zip', () => {
 
-  return $.gulp.src(`${OPTION.tmpRoot}/${OPTION.projectName}.zip`, {base: '', buffer: false})
+  return $.gulp.src(`${OPTION.tmpRoot}/${OPTION.fileName}.zip`, {base: '', buffer: false})
     .pipe($.ftp.create($.config.ftpConfig).dest('/zip'))
     .on('error', $.gp.notify.onError({title: 'Deploy'}))
     .pipe($.gp.notify({
@@ -91,4 +119,3 @@ module.exports = function () {
     'clear-tmp-data'
   ));
 };
-

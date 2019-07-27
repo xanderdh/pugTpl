@@ -1,4 +1,5 @@
 .header {
+  @extend %clearbtn;
   padding: 10px;
   text-align: center;
 }

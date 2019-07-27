@@ -1,11 +1,9 @@
-{
-  "paths": [
-    "lipsum",
-    "../modules/header/header",
-    "../modules/icon/icon",
-    "../modules/footer/footer",
-    "../modules/img/img",
-    "../modules/checkbox/checkbox",
-    "../modules/radio/radio"
-  ]
-}
+[
+  "./lipsum/lipsum",
+  "./icon/icon",
+  "./img/img",
+  "./checkbox/checkbox",
+  "./radio/radio",
+  "../components/header/header",
+  "../components/footer/footer"
+]

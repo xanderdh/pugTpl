@@ -37,13 +37,10 @@ html
       include ../fonts/fonts.css
 
   body
-    include ./modules/preloader/preloader
-    
+    include ./components/preloader/preloader
+
     block content
     
-    if($.dev && !$.isPacking)
-      include ./modules/pagelist/pagelist.pug
-
     block script
       if($.isPacking)
         script(src="assets/js/foundation%=suffix=%.js" defer)
@@ -51,3 +48,6 @@ html
       else
         script(src="assets/js/foundation%=suffix=%.js%=version=%" defer)
         script(src="assets/js/app%=suffix=%.js%=version=%" defer)       
+
+    if($.dev && !$.isPacking)
+      include ./develop-only/admin-panel/admin-panel

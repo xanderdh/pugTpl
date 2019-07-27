@@ -1,72 +1,22 @@
-//TESTER (transpiled with babel for ie compatibility)
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-(function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(require,module,exports){
-  'use strict';
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-  function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-//TESTER
+setTimeout(()=>{
   (function () {
     'use strict';
 
-    var createButton = function createButton() {
-      var button = document.createElement('span');
-      button.setAttribute('id', 'addElems');
-      button.style.width = '40px';
-      button.style.height = '40px';
-      button.style.background = 'black';
-      button.style.position = 'fixed';
-      button.style.bottom = '0';
-      button.style.right = '70px';
-      button.style.padding = '0 5px';
-      button.style.transition = 'all .3s';
-      button.style.cursor = 'pointer';
-      button.style.color = 'white';
-      button.style.fontSize = '12px';
-      button.style.lineHeight = '40px';
-      button.style.textAlign = 'center';
-      button.style.zIndex = '99999';
-      button.innerText = 'text';
-
-      button.addEventListener('mouseover', function () {
-        button.style.background = 'red';
-      });
-      button.addEventListener('mouseout', function () {
-        button.style.background = 'black';
-      });
-
-      $('body').append(button);
-      return button;
-    };
     var createSettingList = function createSettingList() {
-      var $list = $('<ul class="setting-block-change"></ul>');
-      $list.append('<li class="js-static-plus">static +</li>');
-      $list.append('<li class="js-dynamic-plus">dynamic +</li>');
-      $list.append('<li class="js-check-forms">check forms</li>');
-      $list.append('<li class="js-check-popups">check popups</li>');
-      $list.append('<li class="js-check-drop">check drop</li>');
-      $list.append('<li class="js-check-br">check br</li>');
-      $list.append('<li class="js-rules-init">RULES</li>');
-      $list.css({
-        'position': 'fixed',
-        'bottom': '50px',
-        'right': '70px',
-        'backgroundColor': '#000',
-        'padding': '10px 15px',
-        'fontSize': '14px',
-        'color': '#fff',
-        'zIndex': '9999',
-        'display': 'block',
-        'listStyle': 'none',
-        'visibility': 'hidden',
-        'margin': '0'
-      });
-      $list.find('li').css({
-        'padding': '5px 10px'
-      });
-      $('body').append($list);
+      var $list = $('<ul class="setting-block-change list-group"></ul>');
+      $list.append('<li class="js-static-plus list-group-item list-group-item-action">static +</li>');
+      $list.append('<li class="js-dynamic-plus list-group-item list-group-item-action">dynamic +</li>');
+      $list.append('<li class="js-check-forms list-group-item list-group-item-action">check forms</li>');
+      $list.append('<li class="js-check-popups list-group-item list-group-item-action">check popups</li>');
+      $list.append('<li class="js-check-drop list-group-item list-group-item-action">check drop</li>');
+      $list.append('<li class="js-check-br list-group-item list-group-item-action">check br</li>');
+      $list.append('<li class="js-rules-init list-group-item list-group-item-action">RULES</li>');
+      
+      $('._TEST').append($list);
       return $list;
     };
 
@@ -345,6 +295,7 @@
         }
       };
     };
+
     var checkDrop = function checkDrop() {
       var selectors = ['.js-drop-checked'];
       return {
@@ -416,18 +367,17 @@
     var myDrop = checkDrop();
     var myBr = checkBr();
     var myRuls = rulsFn();
-
-    var $button = createButton();
+   
     var $list = createSettingList();
 
     $(window).on('click', function (e) {
       var $this = $(e.target);
 
-      if ($this.closest('#addElems').length) {
-        $list.css('visibility', 'visible');
-      } else if (!$this.closest('#addElems').length && !$this.closest('.setting-block-change').length) {
-        $list.css('visibility', 'hidden');
-      };
+      // if ($this.closest('#addElems').length) {
+      //   $list.css('visibility', 'visible');
+      // } else if (!$this.closest('#addElems').length && !$this.closest('.setting-block-change').length) {
+      //   $list.css('visibility', 'hidden');
+      // };
 
       if ($this.closest('.js-static-plus').length) {
         myText.statics();
@@ -457,33 +407,5 @@
         myDrop.open();
       }
     }, false);
-  })();  
-},{}]},{},[1]);
-
-
-
-//page list
-var close = $('#all-page-close');
-var $wnd = $('#all-page-shower');
-var $open = $('#all-page-open');
-
-close.on('click', function (e) {
-  e.preventDefault();
-  $wnd.animate({
-    'top': '100%',
-    'left': '100%'
-  }, 300, function () {
-    $wnd.hide();
-  });
-  $open.show();
-});
-
-$open.on('click', function (e) {
-  e.preventDefault();
-  $wnd.show()
-    .animate({
-      'top': 0,
-      'left': 0
-    }, 300);
-  $open.hide();
-});
+  })();
+},1600);

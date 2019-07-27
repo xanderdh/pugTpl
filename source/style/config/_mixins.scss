@@ -228,3 +228,11 @@
     border-left: $width solid $color;
   }
 }
+
+%clearbtn {
+  padding: 0;
+  margin: 0;
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+}

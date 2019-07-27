@@ -1,0 +1,84 @@
+._AP {
+  padding: 10px 30px;
+  position: fixed;
+  left: 30px;
+  top: 25px;
+  background-color: #a5b5cc;
+  display: none;
+  border-radius: 0 10px 10px 10px;
+  max-height: calc(100vh - 40px);
+  overflow: auto;
+}
+
+._AP__holder {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+._AP.touch {
+  top: 0;
+  left: 40px;
+  border-radius: 0;
+  max-height: calc(100vh - 100px);
+  padding: 10px;
+}
+
+._AP.touch ._AP-close {
+  display: none;
+}
+
+._AP.touch ._TEST {
+  padding-left: 10px;
+
+  /*is necessary to display on mobile ?*/
+  display: none;
+}
+
+._AP-pageList .list-group-item {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+._AP-close-this {
+  display: none;
+  padding: 0;
+  margin-bottom: 15px;
+  width: 100%;
+  text-align: center;
+}
+
+._AP.touch ._AP-close-this {
+  display: block;
+}
+
+._AP-nav {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px;
+  background-color: #a5b5cc;
+}
+
+._AP-nav__btn {
+  width: 20px;
+  height: 16px;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+  position: relative;
+}
+
+._AP-nav__btn::before {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #000;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+._AP-nav.touch {
+  display: block;
+}

@@ -241,13 +241,10 @@
     }],
     "media-feature-range-operator-space-before": ["always", {
       "message": "Пробел перед оператором диапазона ставить следует"
-    }],
-    "at-rule-blacklist": [["extend"], {
-      "message": "В чёрном списке @-правило это"
-    }],
+    }],    
     "at-rule-empty-line-before": ["always", {
-      "message": "Перед @-правилами строку пустую оставь (кроме @import и @include)",
-      "ignoreAtRules": ["import", "include", "function", "return", "if", "else"],
+      "message": "Перед @-правилами строку пустую оставь (кроме @import, @include, @extend)",
+      "ignoreAtRules": ["import", "include", "function", "return", "if", "else", "extend"],
       "ignore": ["after-comment"]
     }],
     "at-rule-name-case": ["lower", {
@@ -265,6 +262,7 @@
         "/^if/",
         "/^else/",
         "/^function/",
+        "/^extend/",
         "/^return/"
       ]
     }],

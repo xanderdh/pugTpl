@@ -4,11 +4,9 @@
 
 1. Clone this repo from master branch
 2. Delete .git folder from root
-3. `.gitignore` -- Uncomment commented lines to prevent collisions
-4. `git init` -- Git init
-5. `git remote add origin repo_address_here` -- Set remote origin address
-6. `git commit -m "initial commit"` -- Just a commit
-
+3. `git init` -- Git init
+4. `git remote add origin repo_address_here` -- Set remote origin address
+5. `git commit -m "initial commit"` -- First commit
 
 ### Global Requirement
 
@@ -18,23 +16,27 @@
 
 ### Start
 
-* Clone this repo
-* `npm i` -- Install all local packages
-* `npm start` -- Start development
+* `yarn install` -- Install all local packages
+* `yarn cfg` -- Configure your project
+* `yarn start` -- Start development
 
 
 ## Task
 
-1. `npm start` -- Start develop task (serve from ./build)
-2. `npm run build` -- Build production version (all compress, no sourcemap, no watcher, no develop scripts)
-3. `npm run deploy` -- Push build folder to the ftp (settings in ./gulp/ftp-config.js)
-4. `npm run ftp-clean` -- Clean ftp from useless files 
-5. `npm run stylelint` -- Check all .scss with stylelint
-6. `npm run zip` -- zip current ./build to ./zip
-7. `npm run zip-all` -- zip all current project to ./zip
-8. `npm run zip-production` -- zip ./build && ./ with running 'production' task
-9. `npm run move-root` -- Move root folder to build root
-10. `npm run pack` -- Packing all project with build and source. And push to the fpt server
+0. `yarn cfg` -- Configure your project
+1. `yarn start` -- Start develop task (serve from ./build)
+2. `yarn build` -- Build production version (all compress, no sourcemap, no watcher, no develop scripts)
+3. `yarn deploy` -- Push build folder to the ftp (settings in ./gulp/ftp-config__OLD.js)
+4. `yarn ftp-clean` -- Clean ftp from useless files 
+5. `yarn stylelint` -- Check all .scss with stylelint
+6. `yarn zip` -- zip current ./build to ./zip
+7. `yarn zip-all` -- zip all current project to ./zip
+8. `yarn zip-production` -- zip ./build && ./ with running 'production' task
+9. `yarn move-root` -- Move root folder to build root
+10. `yarn pack` -- Packing all project with build and source. And push to the fpt server
+11. `yarn component` -- Create component or mixin via console menu.
+12. `yarn component:del` -- Delete component or mixin list programmatically
+
 
 ## Structure
 
@@ -49,7 +51,7 @@ template/                                # Корень проекта
 ├──  │   └── tasks.js                    # Пути тасок
 ├──  ├── tasks                           # Таски
 ├──  ├── config.js                       # Галп конфиги
-├──  └── ftp-config.js                   # FTP явки, пароли, доступы (секъюрная инфа)
+├──  └── ftp-config.json                 # FTP config
 ├── zip                                  # Архивы zip таски
 ├── source                               # Исходники
 │   ├── fonts                            # Шрифты
@@ -59,8 +61,7 @@ template/                                # Корень проекта
 │   │    │  └── index.js                 # Основная функция контроллера
 │   │    ├── utils                       # Утилсы
 │   │    ├── app.js                      # Точка подключения всех скриптов (не вендоры)
-│   │    ├── constants.js                # Константы
-│   │    └── develop-script.js           # Скрипты используемые только при разработке
+│   │    └── constants.js                # Константы
 │   ├── root                             # Отсюда в корень билда (npm run copy:root) и при деплой таске
 │   ├── sprite                           # Спрайты (svg\png)
 │   ├── style                            # Базовые стили
@@ -68,11 +69,11 @@ template/                                # Корень проекта
 │   │    ├── config                      # Конфиги и миксины
 │   │    └── app.scss                    # Точка подключения всех не вендорных стилей
 │   └── template                         # Pug
-│       ├── basic                        # Базовые миксины и их списки
-│       │    ├── _mixins.pug             # Дефолтные миксины
+│       ├── develop-only                 # Модули необходимые исключительно для дева
+│       ├── mixins                       # Миксины
 │       │    ├── _mixin-list.pug         # Подключение всех миксинов (Генерится програмно)
 │       │    └── _mixin-list.json        # Список всех миксинов в json (Можно вручную добавлять + авто добавление при создании модуля)
-│       ├── modules                      # Модули (pug & scss)
+│       ├── components                   # Копмоненты\модули (все что НЕ миксины)
 │       ├── pages                        # Корневые страницы
 │       ├── data-tmp.json                # Тут собраны все данные .json (файл генерится автоматически)
 │       └── _template.pug                # Шаблон pug (основная структура каждой страницы)

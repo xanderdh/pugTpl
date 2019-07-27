@@ -10,7 +10,13 @@ module.exports = function () {
         entries: sourcePath + bundle,
         debug: !$.isPacking
       })
-        .transform($.babel, {presets: ['env']})
+        .transform(
+          $.babel,
+          {
+            presets: ['babel-preset-latest'],
+            plugins: ["@babel/plugin-proposal-object-rest-spread"]
+          }
+        )
         .bundle()
         .on('error', $.gp.notify.onError({title: 'JS'}))
         .pipe($.source(bundle))

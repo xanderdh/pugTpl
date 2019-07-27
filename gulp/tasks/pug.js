@@ -1,5 +1,7 @@
 'use strict';
 
+const strip = require('gulp-strip-comments');
+
 module.exports = function() {
   const patterns = [];
   $.gulp.task('pug', function() {
@@ -19,6 +21,7 @@ module.exports = function() {
         };
       }))
       .pipe($.gp.replaceTask({ patterns, usePrefix: false }))
+      .pipe(strip({safe: true})) // clear code comments
       .pipe($.gulp.dest($.config.path.root))
       .pipe($.browserSync.stream({once: true}));
   });

@@ -1,9 +1,9 @@
-#/source/template/data-tmp.json
-#/source/template/mixins/_mixin-list.pug
-#/gulp/ftp-config.js
-
 build
 node_modules
 .idea
 .vscode
 zip
+/yarn-error.log
+gulp/ftp-config.json
+/source/template/data-tmp.json
+/source/template/mixins/_mixin-list.pug

@@ -1,0 +1,12 @@
+script(type='text/javascript' defer)
+  include ./page-list.js
+    
+._AP-pageList
+  ._AP-close-this remove this menu
+  .list-group
+    a.list-group-item.list-group-item-action.list-group-item-info(href = "template-svg.html" target="_blank") SVG Preview
+    
+    each page, i in $.pageList
+      a.list-group-item.list-group-item-action(href= page)
+        span= i + 1 + ') '
+        = page
