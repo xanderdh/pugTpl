@@ -1,4 +1,4 @@
-# Сборка deming-builder
+# Сборка pug-builder
 
 ### Before start
 
