@@ -28,27 +28,24 @@ module.exports = function () {
         initial: ftpConfig && ftpConfig.host,
         type: 'text',
         name: 'host',
-        message: 'FTP host name:',
-        validate: value => !!value
+        message: 'FTP host name:'
       },
       {
         initial: ftpConfig && ftpConfig.user,
         type: 'text',
         name: 'user',
-        message: 'FTP user name:',
-        validate: value => !!value
+        message: 'FTP user name:'
       },
       {
         initial: ftpConfig && ftpConfig.password,
         type: 'password',
         name: 'password',
-        message: 'FTP host password:',
-        validate: value => !!value
+        message: 'FTP host password:'
       },
       {
         type: 'confirm',
         name: 'confirm',
-        message: 'Are U sure want to save the date above?',
+        message: 'Are U sure want to save the data above?',
         initial: true
       }
     ];
@@ -57,7 +54,7 @@ module.exports = function () {
 
     if (promptsResult.confirm) {
 
-      // save into package.json     
+      // save into package.json
       packageJson.name = promptsResult.name.replace(/ /g, '').toLowerCase();
       fs.writeFile('package.json', JSON.stringify(packageJson, null, '  '), err => {
         if (err) console.log(err);

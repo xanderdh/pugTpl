@@ -34,7 +34,7 @@
 7. `yarn zip-all` -- zip all current project to ./zip
 8. `yarn zip-production` -- zip ./build && ./ with running 'production' task
 9. `yarn move-root` -- Move root folder to build root
-10. `yarn pack` -- Packing all project with build and source. And push to the fpt server
+10. `yarn pack-build` -- Packing all project with build and source. And push to the fpt server
 11. `yarn component` -- Create component or mixin via console menu.
 12. `yarn component:del` -- Delete component or mixin list programmatically
 
